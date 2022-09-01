@@ -9,7 +9,7 @@ class User {
    * локальном хранилище.
    * */
   static setCurrent(user) {
-    localStorage.setItem('user', toString(user));
+    localStorage.setItem('user', JSON.stringify(user));
   }
 
   /**
@@ -55,7 +55,7 @@ class User {
    * */
   static login(data, callback) {
     createRequest({
-      url: this.URL + '/login',
+      url: this.url + '/login',
       method: 'POST',
       responseType: 'json',
       data,
@@ -76,7 +76,7 @@ class User {
    * */
   static register(data, callback) {
     createRequest({
-      url: this.URL + '/register',
+      url: this.url + '/register',
       method: 'POST',
       responseType: 'json',
       data,
